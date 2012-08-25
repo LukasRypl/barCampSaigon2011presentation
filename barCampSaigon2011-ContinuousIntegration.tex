@@ -1,0 +1,141 @@
+\documentclass[14pt, t]{beamer}
+\usefonttheme{structurebold} % no serifs
+\usetheme{Boadilla}
+\setbeamersize{text margin left=10mm, text margin right=10mm} % 10 mm by default
+\setbeamertemplate{navigation symbols}{} % no navigation symbols
+
+% footnotes
+\usepackage[absolute,overlay]{textpos}
+\newenvironment{reference}[2]{%
+  \begin{textblock*}{\textwidth}(#1,#2)
+      \footnotesize\it\bgroup\color{gray}}{\egroup\end{textblock*}}
+
+% for \justifying
+\usepackage{ragged2e}
+
+% items enclosed in square brackets are optional
+\title[Continuous Integration]{Continuous Integration}
+\subtitle{Jenkins, Eclipse, JUnit}
+\author{Lukas Rypl}
+\institute[BarCamp Saigon]{
+TTC MARCONI\\
+Czech Republic\\
+[1em]
+Twitter: @LukasRypl\\
+[2em]
+for BarCamp Saigon\\
+[1em]
+\includegraphics[height=4em]{images/logo_barcampsaigon_sign.png}
+
+}
+\logo{\includegraphics[height=6mm]{images/logo_barcampsaigon_sign.png}}
+\date[Winter 2011]{December 11, 2011}
+
+\begin{document}
+%--- the titlepage frame -------------------------%
+\begin{frame}[plain]
+	\titlepage
+\end{frame}
+
+%--- the presentation begins here ----------------%
+
+
+\begin{frame}{Target Audience}
+	\begin{itemize}
+		\item Java developers
+		\item Programmers in any other language
+		\item Their team leaders
+		\item Managers
+		\item Testers
+	\end{itemize}
+
+	\pause
+	Proffesionals who
+	\begin{itemize}
+		\item feel safer
+		\item sleep better
+		\item validate their work
+	\end{itemize}
+\end{frame}
+
+
+\begin{frame}{Definition}
+	\justifying
+	Continuous Integration is a software development practice where members of a team integrate their work frequently, usually each person integrates at least daily - leading to multiple integrations per day. Each integration is verified by an automated build (including test) to detect integration errors as quickly as possible. Many teams find that this approach leads to significantly reduced integration problems and allows a team to develop cohesive software more rapidly.\\
+	\begin{flushright}
+		(Martin Fowler)
+	\end{flushright}
+\end{frame}
+
+\begin{frame}[fragile]{Developers Work Algorithm}
+	\begin{verbatim}
+	while (task.requiresWork()) 
+	{
+	1. Write test
+	2. Write implementation
+	}
+	Quick local test 
+	Commit to VCS (cvs, svn, hg, git , ...)
+	\end{verbatim}
+
+\end{frame}
+
+\begin{frame}{Continuous Integration Server}
+	\begin{itemize}
+		\item downloads source code
+		\item builds it
+		\item tests application
+		\item creates package
+		\item deploys it
+		\item sends emails
+		\item plays sounds
+		\item ...
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Why Continuous Integration}
+	\begin{itemize}
+		\item run all tests properly
+		\item produce artifacts always the same way
+		\item blame coworkers :)
+		\item other fun stuff
+	\end{itemize}
+\end{frame}
+
+\begin{frame}[plain]
+	\begin{center} 
+		\includegraphics[width=0.92\textwidth]{images/everytime-you-break-the-build1.png} 
+	\end{center} 
+	\begin{reference}{4mm}{85mm}
+		http://www.ashlux.com/wordpress/2009/07/16/psa-every-time-you-break-the-build/
+	\end{reference}
+\end{frame}
+
+\begin{frame}{Why Unit Testing}
+	\begin{itemize}
+		\item make sure that foundations are OK
+		\item create better (extensible) design
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Tools}
+	\begin{itemize}
+		\item Eclipse (IDE) www.eclipse.org
+		\item SVN (VCS)
+		\item JUnit (unit testing library) www.junit.org
+		\item Jenkins (CI server) www.jenkins-ci.org
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Demo}
+\end{frame}
+
+\begin{frame}{Books}
+	\begin{itemize}
+		\item Kent Beck:\\ Test Driven Development by Example
+		\item Michael E. Faethers:\\ Working Effectively with Legacy Code
+		\item Martin Fowler:\\ Refactoring: Improving the Design of Existing Code
+	\end{itemize}
+\end{frame}
+
+\end{document}
